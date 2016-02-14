@@ -1,0 +1,42 @@
+<resources>
+    <!-- UI-->
+    <string name="app_name">Popular Movies</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_share">Share</string>
+    <string name="sortby_popularity">Sort by popularity</string>
+    <string name="sortby_rating">Sort by rating</string>
+    <string name="sortby_popularity_id">popularity.desc</string>
+    <string name="sortby_rating_id">vote_average.desc</string>
+
+    <!-- URL keys-->
+    <string name="query_param">sort_by</string>
+    <string name="api_key">api_key</string>
+
+    <!-- URL values-->
+    <string name="base_url">"http://api.themoviedb.org/3/discover/movie?vote_count.gte=250"</string>
+    <string name="base_path">"http://image.tmdb.org/t/p/w780//"</string>
+    <!-- Provide the API Key below-->
+    <string name="api_value"></string>
+
+    <!-- JSON object keys-->
+    <string name="json_key_results">results</string>
+    <string name="json_key_id">id</string>
+    <string name="json_key_title">original_title</string>
+    <string name="json_key_overview">overview</string>
+    <string name="json_key_release_date">release_date</string>
+    <string name="json_key_poster_path">poster_path</string>
+    <string name="json_key_vote_average">vote_average</string>
+    <string name="json_key_backdrop_path">backdrop_path</string>
+
+    <!-- notifications-->
+    <string name="no_connectivity">Please check the connectivity!</string>
+    <string name="title_activity_detail">DetailActivity</string>
+
+
+    <!--Detail Activity-->
+    <string name="content_desc_widePoster">Landscape movie poster</string>
+    <string name="content_desc_squarePoster">Square movie poster</string>
+    <string name="rating_denominator">/10</string>
+
+
+</resources>
