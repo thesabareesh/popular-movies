@@ -1,6 +1,7 @@
 package com.sabareesh.popularmovies;
 
 import android.content.Intent;
+import android.media.Image;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,11 +14,22 @@ import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 /**
  * A placeholder fragment containing a simple view.
  */
 public class DetailActivityFragment extends Fragment {
     private String titleBarName;
+
+    @Bind(R.id.original_title) TextView txtViewTitle;
+    @Bind(R.id.release_date) TextView txtViewReleaseDate;
+    @Bind(R.id.user_rating) TextView txtViewRating;
+    @Bind(R.id.synopsys) TextView txtViewSynopsys;
+    @Bind(R.id.squarePoster)ImageView imgViewSquarePoster;
+    @Bind(R.id.widePoster) ImageView imgViewWidePoster;
+
     public DetailActivityFragment() {
     }
 
@@ -30,14 +42,7 @@ public class DetailActivityFragment extends Fragment {
         Movies movieDetails= intent.getParcelableExtra("movieDetail");
         //set title bar name
         getActivity().setTitle(movieDetails.mTitle);
-
-        //Get all UI ids
-        TextView txtViewTitle= (TextView)rootView.findViewById(R.id.original_title);
-        TextView txtViewReleaseDate=(TextView)rootView.findViewById(R.id.release_date);
-        TextView txtViewRating=(TextView)rootView.findViewById(R.id.user_rating);
-        TextView txtViewSynopsys=(TextView)rootView.findViewById(R.id.synopsys);
-        ImageView imgViewSquarePoster=(ImageView)rootView.findViewById(R.id.squarePoster);
-        ImageView imgViewWidePoster=(ImageView)rootView.findViewById(R.id.widePoster);
+        ButterKnife.bind(this,rootView);
 
         txtViewTitle.setText(movieDetails.mTitle);
         String[] yearOfRelease = (movieDetails.mReleaseDate).split("-");
