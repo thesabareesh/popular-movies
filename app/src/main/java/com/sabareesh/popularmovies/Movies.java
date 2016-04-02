@@ -69,7 +69,7 @@ public class Movies implements Parcelable {
         return basePath + mPosterPath;
     }
     public String getBackdropPath() {
-        final String basePath = "http://image.tmdb.org/t/p/w185//";
+        final String basePath = "http://image.tmdb.org/t/p/w500//";
         return basePath + mBackdropPath;
     }
 }

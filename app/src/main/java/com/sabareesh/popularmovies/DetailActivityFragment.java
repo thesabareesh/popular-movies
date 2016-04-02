@@ -2,7 +2,7 @@ package com.sabareesh.popularmovies;
 
 import android.content.Intent;
 import android.media.Image;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
  */
 public class DetailActivityFragment extends Fragment {
     private String titleBarName;
-
+    private Movies movieDetail;
     @Bind(R.id.original_title) TextView txtViewTitle;
     @Bind(R.id.release_date) TextView txtViewReleaseDate;
     @Bind(R.id.user_rating) TextView txtViewRating;
@@ -38,27 +38,38 @@ public class DetailActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView= inflater.inflate(R.layout.fragment_detail, container, false);
-        Intent intent=getActivity().getIntent();
-        Movies movieDetails= intent.getParcelableExtra("movieDetail");
-        //set title bar name
-        getActivity().setTitle(movieDetails.mTitle);
-        ButterKnife.bind(this,rootView);
-
-        txtViewTitle.setText(movieDetails.mTitle);
-        String[] yearOfRelease = (movieDetails.mReleaseDate).split("-");
-        txtViewReleaseDate.setText(yearOfRelease[0]);
-        DecimalFormat df = new DecimalFormat("#");
-        txtViewRating.setText(df.format(movieDetails.mUsersRating));
-        txtViewSynopsys.setText(movieDetails.mSynopsys);
-
-        Picasso.with(getContext())
-                .load(movieDetails.getPosterPath())
-                .into(imgViewSquarePoster);
-
-        Picasso.with(getContext())
-                .load(movieDetails.getBackdropPath())
-                .into(imgViewWidePoster);
-
         return rootView;
+    }
+
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        View view=getView();
+        if(view!=null) {
+            Movies movieDetails= movieDetail;
+            //set title bar name
+            getActivity().setTitle(movieDetails.mTitle);
+
+            ButterKnife.bind(this,getActivity());
+
+            txtViewTitle.setText(movieDetails.mTitle);
+            String[] yearOfRelease = (movieDetails.mReleaseDate).split("-");
+            txtViewReleaseDate.setText(yearOfRelease[0]);
+            DecimalFormat df = new DecimalFormat("#");
+            txtViewRating.setText(df.format(movieDetails.mUsersRating));
+            txtViewSynopsys.setText(movieDetails.mSynopsys);
+
+            Picasso.with(getActivity())
+                    .load(movieDetails.getPosterPath())
+                    .into(imgViewSquarePoster);
+
+            Picasso.with(getActivity())
+                    .load(movieDetails.getBackdropPath())
+                    .into(imgViewWidePoster);
+        }
+    }
+    public void setMovieDetail(Movies movieDetail){
+        this.movieDetail=movieDetail;
     }
 }
