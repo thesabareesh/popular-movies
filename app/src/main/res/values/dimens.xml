@@ -18,6 +18,7 @@
     <dimen name="sqare_poster_marginLeft">10dp</dimen>
     <dimen name="title_height">45dp</dimen>
     <dimen name="title_width">250dp</dimen>
+    <dimen name="fab_fav_size">50dp</dimen>
 
     <item name="bodytext_spacing" format="float" type="dimen"> 1.15</item>
 </resources>

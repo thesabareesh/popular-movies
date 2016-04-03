@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
             FragmentTransaction txn=getFragmentManager().beginTransaction();
             frag_detail.setMovieDetail(movieDetail);
             txn.replace(R.id.frag_detail_container, frag_detail);
-            txn.addToBackStack(null);
             txn.setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             txn.commit();
         }

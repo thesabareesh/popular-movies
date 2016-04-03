@@ -1,7 +1,15 @@
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.sabareesh.popularmovies.DetailActivityFragment"
     android:clipChildren="false"
     tools:showIn="@layout/activity_detail">
@@ -30,6 +38,8 @@
             android:layout_marginStart="@dimen/margin_large"
             android:scaleType="fitXY"
             android:contentDescription="@string/content_desc_squarePoster"/>
+
+
 
         <TextView
             android:id="@+id/original_title"
@@ -103,3 +113,16 @@
     </RelativeLayout>
 
 </ScrollView>
+
+
+<android.support.design.widget.FloatingActionButton
+    android:id="@+id/favorite"
+    app:layout_anchorGravity="bottom|right|end"
+    android:layout_margin="@dimen/fab_margin"
+    android:layout_height="@dimen/fab_fav_size"
+    android:layout_width="@dimen/fab_fav_size"
+    android:scaleType="fitXY"
+    android:clickable="true"
+    app:layout_anchor="@id/widePoster"
+    android:src="@drawable/ic_star_border_white_24dp"/>
+</android.support.design.widget.CoordinatorLayout>

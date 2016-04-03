@@ -14,6 +14,7 @@ public class Movies implements Parcelable {
     String mPosterPath;
     String mBackdropPath;
     float mUsersRating;
+    private transient boolean isFavorite = false;
 
     public Movies(int posterId, String title, String synopsis, String releaseDate, String posterPath,String backdropPath,float rating) {
         this.mPosterId = posterId;

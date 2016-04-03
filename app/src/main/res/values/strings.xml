@@ -31,6 +31,7 @@
     <!-- notifications-->
     <string name="no_connectivity">Please check the connectivity!</string>
     <string name="title_activity_detail">DetailActivity</string>
+    <string name="no_favourites">No favorites</string>
 
 
     <!--Detail Activity-->

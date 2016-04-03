@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/appbar"
@@ -31,14 +31,14 @@
             android:layout_height="match_parent"
             android:layout_below="@id/appbar">
 
-            <fragment
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/frag_detail"
-                class="com.sabareesh.popularmovies.DetailActivityFragment"/>
+            <include layout="@layout/content_activity_detail"/>
+
         </LinearLayout>
 
+
+
     </RelativeLayout>
+
 
 
 

@@ -2,8 +2,11 @@ package com.sabareesh.popularmovies;
 
 import android.app.Activity;
 import android.content.Context;
+import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -16,7 +19,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
+
+import com.sabareesh.popularmovies.provider.MoviesProvider;
+import com.sabareesh.popularmovies.provider.MoviesSQLiteHelper;
+
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -26,7 +35,6 @@ public class MainActivityFragment extends Fragment {
 
     private static final String LOG_TAG = MainActivityFragment.class.getSimpleName();
     private PosterAdapter posterAdapter = null;
-
     static interface MovieListListener{
         public void itemClicked(Movies movieDetail);
     }
@@ -91,8 +99,9 @@ public class MainActivityFragment extends Fragment {
             fetchMovieData.execute(sortType);
 
         }else {
-            Snackbar.make(getView(), R.string.no_connectivity, Snackbar.LENGTH_LONG)
-                    .show();
+            //Snackbar.make(getView(), R.string.no_connectivity, Snackbar.LENGTH_LONG)
+             //           .show();
+
         }
     }
 
@@ -100,6 +109,44 @@ public class MainActivityFragment extends Fragment {
     public void onAttach(Activity activity){
         super.onAttach(activity);
         this.listener=(MovieListListener)activity;
+    }
+
+    public static List<Movies> getFavouriteMovies(Context context)
+    {
+        List<Movies> movies = new ArrayList<>();
+        String URL = MoviesProvider.URL;
+        Uri movie = Uri.parse(URL);
+        Cursor cursor = null;
+        cursor = context.getContentResolver().query(movie, null, null, null, MoviesSQLiteHelper.ROW_ID);
+        if (cursor != null) {
+            while (cursor.moveToNext())
+            {
+
+                int id = cursor.getInt(cursor.getColumnIndex(MoviesSQLiteHelper.ID));
+                String releaseDate = cursor.getString(cursor.getColumnIndex(MoviesSQLiteHelper.RELEASE_DATE));
+                String posterPath = cursor.getString(cursor.getColumnIndex(MoviesSQLiteHelper.POSTERPATH_SQUARE));
+                String backdropPath = cursor.getString(cursor.getColumnIndex(MoviesSQLiteHelper.POSTERPATH_WIDE));
+                float usersRating = (float) cursor.getFloat(cursor.getColumnIndex(MoviesSQLiteHelper.VOTE_AVG));
+                String originalTitle = cursor.getString(cursor.getColumnIndex(MoviesSQLiteHelper.TITLE));
+                String synopsys = cursor.getString(cursor.getColumnIndex(MoviesSQLiteHelper.OVERVIEW));
+
+
+                Movies movieDetails = new Movies(
+                        id,
+                        originalTitle,
+                        synopsys,
+                        releaseDate,
+                        posterPath,
+                        backdropPath,
+                        usersRating);
+
+
+            }
+        }
+        if(movies.size()==0) {
+            Toast.makeText(context,context.getResources().getString(R.string.no_favourites),Toast.LENGTH_LONG).show();
+        }
+        return movies;
     }
 
 
