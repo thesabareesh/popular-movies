@@ -37,11 +37,6 @@
                 android:layout_height="match_parent"
                 android:id="@+id/frag_main"
                 class="com.sabareesh.popularmovies.MainActivityFragment"/>
-
         </LinearLayout>
-
-
     </RelativeLayout>
-
-
 </android.support.design.widget.CoordinatorLayout>

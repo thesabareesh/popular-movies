@@ -18,9 +18,13 @@ public class DetailActivity extends AppCompatActivity {
 
         Intent intent=getIntent();
         Movies movieDetail= intent.getParcelableExtra("movieDetail");
-        DetailActivityFragment detailFragment=(DetailActivityFragment)getFragmentManager().findFragmentById(R.id.frag_detail);
+        DetailActivityFragment detailFragment=new DetailActivityFragment();
         detailFragment.setMovieDetail(movieDetail);
-
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frag_container, detailFragment,
+                        DetailActivityFragment.class.getSimpleName())
+                .commit();
 
     }
 }

@@ -5,15 +5,19 @@
     <string name="action_share">Share</string>
     <string name="sortby_popularity">Sort by popularity</string>
     <string name="sortby_rating">Sort by rating</string>
-    <string name="sortby_popularity_id">popularity.desc</string>
-    <string name="sortby_rating_id">vote_average.desc</string>
+    <string name="sortby_favorites">Favorite movies</string>
+    <string name="default_sorting_id">top_rated</string>
+    <string name="sortby_popularity_id">popular</string>
+    <string name="sortby_rating_id">top_rated</string>
+    <string name="sortby_favorites_id">favorites</string>
+    <string name="share">Share trailer</string>
 
     <!-- URL keys-->
     <string name="query_param">sort_by</string>
     <string name="api_key">api_key</string>
 
     <!-- URL values-->
-    <string name="base_url">"http://api.themoviedb.org/3/discover/movie?vote_count.gte=250"</string>
+    <string name="base_url">"http://api.themoviedb.org/3/movie"</string>
     <string name="base_path">"http://image.tmdb.org/t/p/w780//"</string>
     <!-- Provide the API Key below-->
     <string name="api_value"></string>
@@ -38,6 +42,14 @@
     <string name="content_desc_widePoster">Landscape movie poster</string>
     <string name="content_desc_squarePoster">Square movie poster</string>
     <string name="rating_denominator">/10</string>
+    <string name="content_desc_video">Trailer</string>
+    <string name="trailer_thumb_base_url">http://img.youtube.com/vi/</string>
+    <string name="trailer_base_url">"http://www.youtube.com/watch?v="</string>
+    <string name="share_trailer">Share trailer via..</string>
+    <string name="trailer_share_text">Checkout the trailer of </string>
+    <string name="app_hashtag">#PopularMovies</string>
 
+    <!--paths-->
+    <string name="cache_thumbnails_path">/data/FavCache/</string>
 
 </resources>

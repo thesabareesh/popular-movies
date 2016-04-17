@@ -31,12 +31,13 @@
             android:layout_height="match_parent"
             android:layout_below="@id/appbar">
 
-            <include layout="@layout/content_activity_detail"/>
-
+            <FrameLayout
+                android:id="@+id/frag_container"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="6">
+            </FrameLayout>
         </LinearLayout>
-
-
-
     </RelativeLayout>
 
 

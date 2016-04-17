@@ -24,16 +24,20 @@
         <activity
             android:name=".DetailActivity"
             android:label="@string/title_activity_detail"
-            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.sabareesh.popularmovies.MainActivity" />
         </activity>
+
         <provider
+            android:name=".provider.MoviesProvider"
             android:authorities="com.sabareesh.popularmovies.provider"
-            android:name=".provider.MoviesProvider" >
-        </provider>
+            android:exported="false"></provider>
+
+        <activity android:name=".ReviewActivity">
+
+        </activity>
     </application>
 
 </manifest>

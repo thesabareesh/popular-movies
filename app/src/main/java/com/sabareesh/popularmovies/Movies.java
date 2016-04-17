@@ -7,14 +7,15 @@ import android.os.Parcelable;
  * Created by SABAREESH on 06-Feb-16.
  */
 public class Movies implements Parcelable {
-    int mPosterId;
-    String mTitle;
-    String mSynopsys;
-    String mReleaseDate;
-    String mPosterPath;
-    String mBackdropPath;
-    float mUsersRating;
-    private transient boolean isFavorite = false;
+     int mPosterId;
+     String mTitle;
+     String mSynopsys;
+     String mReleaseDate;
+     String mPosterPath;
+     String mBackdropPath;
+     float mUsersRating;
+    private Extras mExtra;
+    transient boolean isFavorite = false;
 
     public Movies(int posterId, String title, String synopsis, String releaseDate, String posterPath,String backdropPath,float rating) {
         this.mPosterId = posterId;
@@ -25,6 +26,7 @@ public class Movies implements Parcelable {
         this.mBackdropPath=backdropPath;
         this.mUsersRating = rating;
     }
+
     // to deparcel object
     public Movies(Parcel in) {
         mPosterId = in.readInt();
@@ -34,6 +36,7 @@ public class Movies implements Parcelable {
         mPosterPath = in.readString();
         mBackdropPath = in.readString();
         mUsersRating = in.readFloat();
+        mExtra = in.readParcelable(Extras.class.getClassLoader());
     }
 
     @Override
@@ -50,6 +53,7 @@ public class Movies implements Parcelable {
         dest.writeString(mPosterPath);
         dest.writeString(mBackdropPath);
         dest.writeFloat(mUsersRating);
+        dest.writeParcelable(mExtra, 0);
     }
 
 
@@ -73,4 +77,9 @@ public class Movies implements Parcelable {
         final String basePath = "http://image.tmdb.org/t/p/w500//";
         return basePath + mBackdropPath;
     }
+    public void setExtras(Extras extra){
+        this.mExtra = extra;
+
+    }
+
 }

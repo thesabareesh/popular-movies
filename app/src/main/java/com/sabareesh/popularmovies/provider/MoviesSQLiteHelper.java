@@ -12,7 +12,7 @@ public class MoviesSQLiteHelper extends SQLiteOpenHelper {
 
     public static final String DB_NAME="PopularMovies";
     static final String TABLE_NAME="FavoriteMovies";
-    static final int DB_VERSION=1;
+    static final int DB_VERSION=3;
 
     //DB columns
     public static final String ROW_ID="id";
@@ -20,9 +20,12 @@ public class MoviesSQLiteHelper extends SQLiteOpenHelper {
     public static final String TITLE="title";
     public static final String POSTERPATH_SQUARE="posterPathSquare";
     public static final String POSTERPATH_WIDE="posterPathWide";
+    public static final String FILEPATH_SQUARE_CACHE="filePathSquare";
+    public static final String FILEPATH_WIDE_CACHE="filePathWide";
     public static final String VOTE_AVG="voteAverage";
     public static final String RELEASE_DATE="releaseDate";
     public static final String OVERVIEW="overview";
+
 
     static final String CREATE_TABLE=" CREATE TABLE " + TABLE_NAME +
             " ( "+ROW_ID+
@@ -30,6 +33,8 @@ public class MoviesSQLiteHelper extends SQLiteOpenHelper {
             " INTEGER NOT NULL, " + "" + TITLE+
             " TEXT NOT NULL, " + POSTERPATH_SQUARE+
             " TEXT NOT NULL, " + POSTERPATH_WIDE+
+            //" TEXT NOT NULL, " + FILEPATH_SQUARE_CACHE+
+            //" TEXT NOT NULL, " + FILEPATH_WIDE_CACHE+
             " TEXT NOT NULL, " + RELEASE_DATE+
             " TEXT NOT NULL, " + VOTE_AVG+
             " TEXT NOT NULL, " + OVERVIEW+

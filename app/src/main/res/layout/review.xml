@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/review"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingEnd="@dimen/margin_large"
+    android:paddingLeft="@dimen/margin_large"
+    android:paddingRight="@dimen/margin_large"
+    android:paddingStart="@dimen/margin_large"
+    android:paddingTop="@dimen/margin_small"
+    android:paddingBottom="@dimen/margin_small"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/review_author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        tools:text="Joe bloggs"
+        />
+
+    <TextView
+        android:id="@+id/review_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="5"
+        android:lineSpacingMultiplier="@dimen/bodytext_spacing"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:layout_marginBottom="@dimen/margin_small"
+        tools:text="test review."
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@android:color/darker_gray"/>
+
+</LinearLayout>

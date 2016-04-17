@@ -23,13 +23,9 @@ public class MoviesProvider extends ContentProvider {
     public static final String PROVIDER_NAME = "com.sabareesh.popularmovies.provider";
     public static final String URL = "content://" + PROVIDER_NAME + "/movies";
     public static final Uri CONTENT_URI = Uri.parse(URL);
-
-
     static final int MOVIES = 1;
     static final int MOVIES_ID = 2;
-
     private static HashMap<String,String> MovieMap;
-
     public MoviesSQLiteHelper sqLiteOpenHelper;
     private SQLiteDatabase database;
 
@@ -61,7 +57,6 @@ public class MoviesProvider extends ContentProvider {
             default:
                 throw new IllegalArgumentException("Unknown URI " + uri);
         }
-
         if (sortOrder == null || sortOrder == ""){
             sortOrder = sqLiteOpenHelper.ID;
         }

@@ -89,6 +89,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
         <TextView
+            android:id="@+id/rating_denominator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -110,6 +111,71 @@
             android:lineSpacingMultiplier="@dimen/bodytext_spacing"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
+        <TextView
+            android:id="@+id/trailers_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/synopsys"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:layout_marginLeft="@dimen/margin_large"
+            android:layout_marginRight="@dimen/margin_large"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:paddingTop="@dimen/margin_large"
+            android:text="Trailers"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:visibility="gone"
+            />
+
+        <HorizontalScrollView
+            android:id="@+id/trailers_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/trailers_header"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginBottom="@dimen/margin_large"
+            android:clipChildren="false"
+            android:visibility="gone"
+            tools:ignore="RtlHardcoded,RtlSymmetry">
+
+            <LinearLayout
+                android:id="@+id/trailers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:orientation="horizontal"
+                android:showDividers="middle"
+                />
+
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/reviews_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/trailers_container"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:layout_marginLeft="@dimen/margin_large"
+            android:layout_marginRight="@dimen/margin_large"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:paddingTop="@dimen/margin_large"
+            android:text="Reviews"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:visibility="gone"
+            />
+
+        <LinearLayout
+            android:id="@+id/reviews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/reviews_header"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginBottom="@dimen/margin_large"
+            android:clipChildren="false"
+            android:orientation="vertical"
+            android:visibility="gone" />
+
     </RelativeLayout>
 
 </ScrollView>
@@ -125,4 +191,18 @@
     android:clickable="true"
     app:layout_anchor="@id/widePoster"
     android:src="@drawable/ic_star_border_white_24dp"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/share"
+        app:layout_anchorGravity="bottom|right"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:layout_marginRight="@dimen/twin_fab_right_margin"
+        android:layout_height="@dimen/fab_fav_size"
+        android:layout_width="@dimen/fab_fav_size"
+        android:scaleType="centerCrop"
+        android:clickable="true"
+        app:layout_anchor="@id/widePoster"
+        android:src="@drawable/ic_share_white_24dp"
+        />
+
 </android.support.design.widget.CoordinatorLayout>
