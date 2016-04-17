@@ -1,6 +1,13 @@
-Popular movies - Stage 1
+Popular movies - Stage 1 and Stage 2
 
-This application shows list of movies in a grid. The movies can be sorted by rating or popularity.
-When movie poster is cliked, details of the movie i.e, Synopsis, user rating, release year and poster are displayed.
+This app help users to discover the most popular, the highest rated and the favorite movies. It includes various new Lollipop+ features.
 
 IMPORTANT : For the app to work provide a api key in the strings.xml for the string "api_value".
+
+Features:
+
+#1 See their ratings,popularity,release date and synopsis.
+#2 Save favorite movies locally to view them even when offline
+#3 Watch trailers
+#4 Read reviews
+#5 Sharing movie details with your friends
