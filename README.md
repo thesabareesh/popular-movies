@@ -4,7 +4,7 @@ This app help users to discover the most popular, the highest rated and the favo
 
 IMPORTANT : For the app to work provide a api key in the strings.xml for the string "api_value".
 
-Features:
+#1 Features:
 
 #1 See their ratings,popularity,release date and synopsis.
 #2 Save favorite movies locally to view them even when offline

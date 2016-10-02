@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +13,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,6 +40,7 @@ public class DetailActivityFragment extends Fragment implements FetchTrailersTas
     View.OnClickListener mOnClickListener;
     private Extras extras;
     private Movies movieDetail;
+    @Bind(R.id.collapsing_toolbar_layout) CollapsingToolbarLayout toolbarLayout;
     @Bind(R.id.original_title)      TextView txtViewTitle;
     @Bind(R.id.release_date)        TextView txtViewReleaseDate;
     @Bind(R.id.user_rating)         TextView txtViewRating;
@@ -72,7 +76,12 @@ public class DetailActivityFragment extends Fragment implements FetchTrailersTas
         if(view!=null && movieDetail!=null) {
             Movies movieDetails= movieDetail;
             //set title bar name
-            getActivity().setTitle(movieDetails.mTitle);
+            //getActivity().setTitle(movieDetails.mTitle);
+            Toolbar toolbar = (Toolbar)view.findViewById(R.id.app_bar);
+            ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+            ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout)view.findViewById(R.id.collapsing_toolbar_layout);
+            collapsingToolbarLayout.setTitle(movieDetails.mTitle);
             ButterKnife.bind(this, view);
 
             txtViewTitle.setText(movieDetails.mTitle);
